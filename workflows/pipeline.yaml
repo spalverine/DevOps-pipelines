@@ -1,0 +1,11 @@
+name: CI pipeline
+
+on:   #Define the trigger event (what action in github should start this event)
+  push:  #Trigger the workflow on push or pull request events but only for the main branch
+    branches: [ main ]
+
+jobs:  #group of steps that run together (like a container in which multiple actions executed in sequence)
+  build: #A job named "build"
+    runs-on: ubunto-latest  #The type of runner that the job will run on
+
+  
