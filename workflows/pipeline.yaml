@@ -8,4 +8,17 @@ jobs:  #group of steps that run together (like a container in which multiple act
   build: #A job named "build"
     runs-on: ubunto-latest  #The type of runner that the job will run on
 
-  
+steps: #A sequence of tasks that will be executed as part of the job
+  - name: Checkout code  #A step named "Checkout code"
+    uses: actions/checkout@v5  #This means that we're using a prebuilt github action
+
+  - name: Set up Node.js
+    uses: actions/setup-node@v3  #Using another prebuilt action to set up Node.js environment
+    with:
+      node-version: '16'  #Specifying the version of Node.js to set up
+
+  - name: Install dependencies
+    run: npm install  #Run the command to install project dependencies
+
+  - name: Run tests
+    run: npm test  #Run the command to execute tests
